@@ -3,7 +3,9 @@ OdinSequence is helped about all of coroutine animation.<br>
 
 ## Sequence Controller
 SequenceController is waiting until before coroutine finished.<br>
-<b>Easy to add, fix and expand</b>
+<b>Easy to add, fix and expand</b><br>
+![Image](./Images/sequenceEditor.gif)
+
 
 # Tutorial
 Wait...
