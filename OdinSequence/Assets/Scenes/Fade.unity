@@ -1059,7 +1059,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2138272116}
-        m_MethodName: StartSequence
+        m_MethodName: SequenceStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1235,7 +1235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52d71ac1f68b16340b22898f11a8d3d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSequences:
+  sequences:
   - sequence: {fileID: 874229780}
     select: 0
   - sequence: {fileID: 1741817252}

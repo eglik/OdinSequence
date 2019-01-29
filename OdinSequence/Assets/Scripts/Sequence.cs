@@ -5,9 +5,12 @@ using UnityEngine;
 [System.Serializable]
 public class Sequence : MonoBehaviour
 {
+    #region protected field
     [SerializeField]
     protected float speed;
+    #endregion
 
+    #region public IEnumerator
     public IEnumerator Activate()
     {
         float process = 0f;
@@ -21,12 +24,16 @@ public class Sequence : MonoBehaviour
 
         yield break;
     }
+    #endregion
 
+    #region protected virtual method
     protected virtual void SequenceProcess(float process)
     {
 
     }
+    #endregion
 
+    #region public virtual method
     public virtual void BeginSequence()
     {
 
@@ -36,7 +43,9 @@ public class Sequence : MonoBehaviour
     {
 
     }
+    #endregion
 
+    #region SequenceControllerEditor method
     public string[] GetSequenceArray()
     {
         List<string> data = new List<string>();
@@ -53,4 +62,5 @@ public class Sequence : MonoBehaviour
 
         return data.ToArray();
     }
+    #endregion
 }

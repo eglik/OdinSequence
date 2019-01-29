@@ -5,14 +5,39 @@ using UnityEngine;
 
 public class SequenceController : MonoBehaviour
 {
+    #region public field
     [SerializeField]
-    public List<SequenceEvents> startSequences;
+    public List<SequenceEvents> sequences;
 
     [SerializeField]
     public List<SequenceEvents> endSequences;
+    #endregion
 
+    #region private field
     private bool isRunning = false;
+    #endregion
 
+    public void SequenceStart()
+    {
+        if (isRunning)
+            return;
+
+        StartCoroutine(StartSequenceCoroutine());
+    }
+
+    private IEnumerator StartSequenceCoroutine()
+    {
+        isRunning = true;
+        foreach(var s in sequences)
+        {
+            s.sequence.BeginSequence();
+            yield return StartCoroutine(s.sequence.Activate());
+            s.sequence.EndSequence();
+        }
+        isRunning = false;
+    }
+
+    #region SequenceControllerEditor method
     public void CastingSequence(List<SequenceEvents> list, int index, Component s)
     {
         list[index].sequence = s as Sequence;
@@ -23,48 +48,9 @@ public class SequenceController : MonoBehaviour
         return list.Count;
     }
 
-    public void StartSequence()
-    {
-        if (isRunning)
-            return;
-
-        StartCoroutine(StartSequenceCoroutine());
-    }
-
-    public void EndSequence()
-    {
-        if (isRunning)
-            return;
-
-        StartCoroutine(EndSequenceCoroutine());
-    }
-
     public GameObject GetTargetObject(List<SequenceEvents> list, int index)
     {
         return list[index].sequence.gameObject;
     }
-
-    private IEnumerator StartSequenceCoroutine()
-    {
-        isRunning = true;
-        foreach(var i in startSequences)
-        {
-            i.sequence.BeginSequence();
-            yield return StartCoroutine(i.sequence.Activate());
-            i.sequence.EndSequence();
-        }
-        isRunning = false;
-    }
-
-    private IEnumerator EndSequenceCoroutine()
-    {
-        isRunning = true;
-        foreach (var i in endSequences)
-        {
-            i.sequence.BeginSequence();
-            yield return StartCoroutine(i.sequence.Activate());
-            i.sequence.EndSequence();
-        }
-        isRunning = false;
-    }
+    #endregion
 }
