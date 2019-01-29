@@ -11,9 +11,6 @@ public class SequenceControllerEditor : Editor
     private ReorderableList list1;
     private ReorderableList list2;
 
-    private int[] select1 = new int[100];
-    private int[] select2 = new int[100];
-
     private void OnEnable()
     {
         SequenceController sequenceController = target as SequenceController;
