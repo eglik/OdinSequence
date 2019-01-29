@@ -65,7 +65,6 @@
     <Compile Include="Assets\Scripts\FadeinSequence.cs" />
     <Compile Include="Assets\Scripts\FadeoutSequence.cs" />
     <Compile Include="Assets\Scripts\FillSequence.cs" />
-    <Compile Include="Assets\Scripts\PopupSelector.cs" />
     <Compile Include="Assets\Scripts\Sequence.cs" />
     <Compile Include="Assets\Scripts\SequenceController.cs" />
     <Compile Include="Assets\Scripts\SequenceEvents.cs" />
