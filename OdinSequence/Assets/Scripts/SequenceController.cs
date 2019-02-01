@@ -13,13 +13,9 @@ public class SequenceController : MonoBehaviour
     public List<SequenceEvents> endSequences;
     #endregion
 
-    #region private field
-    private bool isRunning = false;
-    #endregion
-
     public void SequenceStart()
     {
-        if (isRunning)
+        if (SequenceSafety.GetInstace().isRunning)
             return;
 
         StartCoroutine(StartSequenceCoroutine());
@@ -27,14 +23,14 @@ public class SequenceController : MonoBehaviour
 
     private IEnumerator StartSequenceCoroutine()
     {
-        isRunning = true;
+        SequenceSafety.GetInstace().isRunning = true;
         foreach(var s in sequences)
         {
             s.sequence.BeginSequence();
             yield return StartCoroutine(s.sequence.Activate());
             s.sequence.EndSequence();
         }
-        isRunning = false;
+        SequenceSafety.GetInstace().isRunning = false;
     }
 
     #region SequenceControllerEditor method

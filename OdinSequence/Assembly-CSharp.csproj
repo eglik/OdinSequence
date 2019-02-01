@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Sequence.cs" />
     <Compile Include="Assets\Scripts\SequenceController.cs" />
     <Compile Include="Assets\Scripts\SequenceEvents.cs" />
+    <Compile Include="Assets\Scripts\SequenceSafety.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/FAMOZ-22/Desktop/study/github/OdinSequence/OdinSequence/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
