@@ -2,65 +2,68 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class Sequence : MonoBehaviour
+namespace Quat
 {
-    #region protected field
-    [SerializeField]
-    protected float speed;
-    #endregion
-
-    #region public IEnumerator
-    public IEnumerator Activate()
+    [System.Serializable]
+    public class Sequence : MonoBehaviour
     {
-        float process = 0f;
+        #region protected field
+        [SerializeField]
+        protected float speed;
+        #endregion
 
-        while (process <= 1f)
+        #region public IEnumerator
+        public IEnumerator Activate()
         {
-            process += Time.deltaTime * speed;
-            SequenceProcess(process);
-            yield return null;
-        }
+            float process = 0f;
 
-        yield break;
-    }
-    #endregion
-
-    #region protected virtual method
-    protected virtual void SequenceProcess(float process)
-    {
-
-    }
-    #endregion
-
-    #region public virtual method
-    public virtual void BeginSequence()
-    {
-
-    }
-
-    public virtual void EndSequence()
-    {
-
-    }
-    #endregion
-
-    #region SequenceControllerEditor method
-    public string[] GetSequenceArray()
-    {
-        List<string> data = new List<string>();
-
-        var sequences = GetComponents<Sequence>();
-
-        foreach (var s in sequences)
-        {
-            if (s is Sequence)
+            while (process <= 1f)
             {
-                data.Add(s.GetType().ToString());
+                process += Time.deltaTime * speed;
+                SequenceProcess(process);
+                yield return null;
             }
+
+            yield break;
+        }
+        #endregion
+
+        #region protected virtual method
+        protected virtual void SequenceProcess(float process)
+        {
+
+        }
+        #endregion
+
+        #region public virtual method
+        public virtual void BeginSequence()
+        {
+
         }
 
-        return data.ToArray();
+        public virtual void EndSequence()
+        {
+
+        }
+        #endregion
+
+        #region SequenceControllerEditor method
+        public string[] GetSequenceArray()
+        {
+            List<string> data = new List<string>();
+
+            var sequences = GetComponents<Sequence>();
+
+            foreach (var s in sequences)
+            {
+                if (s is Sequence)
+                {
+                    data.Add(s.GetType().ToString());
+                }
+            }
+
+            return data.ToArray();
+        }
+        #endregion
     }
-    #endregion
 }

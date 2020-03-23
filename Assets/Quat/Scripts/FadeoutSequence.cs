@@ -1,24 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class FadeoutSequence : Sequence
+namespace Quat
 {
-    [SerializeField]
-    CanvasGroup canvasGroup;
-
-    private void Awake()
+    public class FadeoutSequence : Sequence
     {
-        canvasGroup = GetComponent<CanvasGroup>();
-    }
+        [SerializeField]
+        CanvasGroup canvasGroup;
 
-    protected override void SequenceProcess(float process)
-    {
-        canvasGroup.alpha = process;
-    }
+        private void Awake()
+        {
+            canvasGroup = GetComponent<CanvasGroup>();
+        }
 
-    public override void BeginSequence()
-    {
-        gameObject.SetActive(true);
+        protected override void SequenceProcess(float process)
+        {
+            canvasGroup.alpha = process;
+        }
+
+        public override void BeginSequence()
+        {
+            gameObject.SetActive(true);
+        }
     }
 }

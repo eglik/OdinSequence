@@ -2,24 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SequenceSafety
+namespace Quat
 {
-    private static SequenceSafety instance = null;
-
-    public bool isRunning;
-
-    private SequenceSafety()
+    public class SequenceSafety
     {
-        isRunning = false;
-    }
+        private static SequenceSafety instance = null;
 
-    public static SequenceSafety GetInstace()
-    {
-        if(instance == null)
+        public bool isRunning;
+
+        private SequenceSafety()
         {
-            instance = new SequenceSafety();
+            isRunning = false;
         }
 
-        return instance;
+        public static SequenceSafety GetInstace()
+        {
+            if (instance == null)
+            {
+                instance = new SequenceSafety();
+            }
+
+            return instance;
+        }
     }
 }

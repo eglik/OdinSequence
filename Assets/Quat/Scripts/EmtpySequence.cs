@@ -1,24 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine.UI;
 
-public class EmtpySequence : Sequence
+namespace Quat
 {
-    Image image;
-
-    private void Awake()
+    public class EmtpySequence : Sequence
     {
-        image = GetComponent<Image>();
-    }
+        Image image;
 
-    public override void EndSequence()
-    {
-        gameObject.SetActive(false);
-    }
+        private void Awake()
+        {
+            image = GetComponent<Image>();
+        }
 
-    protected override void SequenceProcess(float process)
-    {
-        image.fillAmount = 1 - process;
+        public override void EndSequence()
+        {
+            gameObject.SetActive(false);
+        }
+
+        protected override void SequenceProcess(float process)
+        {
+            image.fillAmount = 1 - process;
+        }
     }
 }

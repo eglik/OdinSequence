@@ -1,24 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine.UI;
 
-public class FillSequence : Sequence
+namespace Quat
 {
-    Image image;
-
-    private void Awake()
+    public class FillSequence : Sequence
     {
-        image = GetComponent<Image>();
-    }
+        Image image;
 
-    public override void BeginSequence()
-    {
-        gameObject.SetActive(true);
-    }
+        private void Awake()
+        {
+            image = GetComponent<Image>();
+        }
 
-    protected override void SequenceProcess(float process)
-    {
-        image.fillAmount = process;
+        public override void BeginSequence()
+        {
+            gameObject.SetActive(true);
+        }
+
+        protected override void SequenceProcess(float process)
+        {
+            image.fillAmount = process;
+        }
     }
 }
