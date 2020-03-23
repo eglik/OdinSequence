@@ -23,11 +23,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           lfs: true
-      - uses: actions/cache@v1.1.0
-        with:
-          key: Library-${{ matrix.unityVersion }}
-          restore-keys: |
-            Library-
       - uses: webbertakken/unity-test-runner@v1.4
         id: tests
         with:
