@@ -1,0 +1,19 @@
+name: Unity Test
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Unity - Test runner
+      env:
+        UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+      uses: webbertakken/unity-test-runner@v1.6
+      with:
+        unityVersion: 2019.3.3f1
