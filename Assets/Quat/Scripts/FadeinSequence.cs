@@ -7,7 +7,7 @@ public class FadeinSequence : Sequence
     [SerializeField]
     CanvasGroup canvasGroup;
 
-    private void Start()
+    private void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
     }
