@@ -2,9 +2,9 @@
 
 namespace Quat
 {
+    [RequireComponent(typeof(CanvasGroup))]
     public class FadeinSequence : Sequence
     {
-        [SerializeField]
         CanvasGroup canvasGroup;
 
         private void Awake()
@@ -20,6 +20,11 @@ namespace Quat
         public override void EndSequence()
         {
             gameObject.SetActive(false);
+        }
+
+        public override void BeginSequence()
+        {
+
         }
     }
 }

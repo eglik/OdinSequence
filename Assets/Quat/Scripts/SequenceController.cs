@@ -40,11 +40,6 @@ namespace Quat
             list[index].sequence = s as Sequence;
         }
 
-        public int GetSequenceEventsCount(List<SequenceEvents> list)
-        {
-            return list.Count;
-        }
-
         public GameObject GetTargetObject(List<SequenceEvents> list, int index)
         {
             return list[index].sequence.gameObject;

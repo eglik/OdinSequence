@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Quat
 {
     [System.Serializable]
-    public class Sequence : MonoBehaviour
+    public abstract class Sequence : MonoBehaviour
     {
         #region protected field
         [SerializeField]
-        protected float speed;
+        protected float speed = 1f;
         #endregion
 
         #region public IEnumerator
@@ -35,34 +36,16 @@ namespace Quat
         }
         #endregion
 
-        #region public virtual method
-        public virtual void BeginSequence()
-        {
-
-        }
-
-        public virtual void EndSequence()
-        {
-
-        }
+        #region public abstract method
+        public abstract void BeginSequence();
+        public abstract void EndSequence();
         #endregion
 
         #region SequenceControllerEditor method
         public string[] GetSequenceArray()
         {
-            List<string> data = new List<string>();
-
             var sequences = GetComponents<Sequence>();
-
-            foreach (var s in sequences)
-            {
-                if (s is Sequence)
-                {
-                    data.Add(s.GetType().ToString());
-                }
-            }
-
-            return data.ToArray();
+            return sequences.Select((s) => s.GetType().Name).ToArray();
         }
         #endregion
     }
