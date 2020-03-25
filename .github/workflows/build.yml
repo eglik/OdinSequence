@@ -26,6 +26,7 @@ jobs:
           - iOS # Build an iOS player.
           - Android # Build an Android .apk standalone app.
     steps:
+      - uses: actions/checkout@v2
       - uses: webbertakken/unity-builder@v0.12
         with:
           unityVersion: ${{ matrix.unityVersion }}
