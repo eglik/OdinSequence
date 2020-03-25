@@ -27,5 +27,3 @@ jobs:
       with:
         # User defined upload name. Visible in Codecov UI
         name: Quat
-        # Path to coverage file to upload
-        file: ./coverage.xml # optional
