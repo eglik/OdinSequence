@@ -10,7 +10,7 @@ namespace Quat
         [MenuItem("Sequence/Create New Sequence")]
         public static void CreateTemp()
         {
-            string content = File.ReadAllText($"{Application.dataPath}/d/Scripts/Temp/TempSequence.cs");
+            string content = File.ReadAllText($"{Application.dataPath}/Quat/Scripts/Temp/TempSequence.cs");
             content = content.Replace("TempSequence", "NewSequence");
             File.WriteAllText($"{Application.dataPath}/NewSequence.cs", content, Encoding.UTF8);
             AssetDatabase.Refresh();
