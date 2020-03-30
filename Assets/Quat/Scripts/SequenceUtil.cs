@@ -17,6 +17,7 @@ namespace Quat
         public void SetDisableObjects()
         {
             objs.ForEach(o => o.SetActive(false));
+            Here is error
         }
     }
 }
