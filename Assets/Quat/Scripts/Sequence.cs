@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Quat
 {
@@ -11,6 +12,14 @@ namespace Quat
         #region protected field
         [SerializeField]
         protected float speed = 1f;
+        #endregion
+
+        #region public unity event
+        [SerializeField]
+        public UnityEvent OnBeginSequence;
+
+        [SerializeField]
+        public UnityEvent OnEndSequence;
         #endregion
 
         #region public IEnumerator
@@ -34,11 +43,6 @@ namespace Quat
         {
 
         }
-        #endregion
-
-        #region public abstract method
-        public abstract void BeginSequence();
-        public abstract void EndSequence();
         #endregion
 
         #region SequenceControllerEditor method

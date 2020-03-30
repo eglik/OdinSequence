@@ -11,20 +11,6 @@ namespace Quat
             // UI 초기화는 이곳에서
         }
 
-        public override void BeginSequence()
-        {
-            // Call when sequence begin
-            // Useful to reset UI
-            // 시퀀스가 실행될때 실행됨
-            // UI를 재설정할때 유용함
-        }
-
-        public override void EndSequence()
-        {
-            // Call when sequence end
-            // 시퀀스가 종료될때 실행됨
-        }
-
         protected override void SequenceProcess(float process)
         {
             // This method is running in sequence coroutine (range 0-1)

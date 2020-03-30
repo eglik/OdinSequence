@@ -16,15 +16,5 @@ namespace Quat
         {
             canvasGroup.alpha = 1 - process;
         }
-
-        public override void EndSequence()
-        {
-            gameObject.SetActive(false);
-        }
-
-        public override void BeginSequence()
-        {
-
-        }
     }
 }

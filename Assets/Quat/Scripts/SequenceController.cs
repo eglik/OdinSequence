@@ -27,9 +27,9 @@ namespace Quat
             SequenceSafety.GetInstace().isRunning = true;
             foreach (var s in sequences)
             {
-                s.sequence.BeginSequence();
+                s.sequence.OnBeginSequence?.Invoke();
                 yield return StartCoroutine(s.sequence.Activate());
-                s.sequence.EndSequence();
+                s.sequence.OnEndSequence?.Invoke();
             }
             SequenceSafety.GetInstace().isRunning = false;
         }
